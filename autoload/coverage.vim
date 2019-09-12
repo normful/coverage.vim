@@ -96,10 +96,10 @@ function! coverage#calc_line_from_statementsMap(json) abort
 endfunction
 
 function! coverage#find_coverage_json() abort
-  if g:test#project_root
-    let json_path = g:test#project_root . g:coverage_json_report_path
+  if exists("*projectroot#guess")
+    let json_path = projectroot#guess(expand('%:p')) . g:coverage_json_report_path
     return json_path
-  else
+  endif
 
   let cwd = fnamemodify('.', ':p')
   let json_path = cwd . g:coverage_json_report_path

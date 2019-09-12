@@ -31,7 +31,7 @@ function! coverage#get_coverage_lines(file_name) abort
   let lines_map = {}
 
   if !filereadable(coverage_json_full_path)
-    "echoerr '"' . coverage_json_full_path . '" is not found'
+    echoerr '"' . coverage_json_full_path . '" is not found'
     return lines
   endif
 
@@ -96,6 +96,11 @@ function! coverage#calc_line_from_statementsMap(json) abort
 endfunction
 
 function! coverage#find_coverage_json() abort
+  if g:test#project_root
+    let json_path = g:test#project_root . g:coverage_json_report_path
+    return json_path
+  else
+
   let cwd = fnamemodify('.', ':p')
   let json_path = cwd . g:coverage_json_report_path
   return json_path

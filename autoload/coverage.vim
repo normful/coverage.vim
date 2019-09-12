@@ -31,7 +31,9 @@ function! coverage#get_coverage_lines(file_name) abort
   let lines_map = {}
 
   if !filereadable(coverage_json_full_path)
-    echoerr '"' . coverage_json_full_path . '" is not found'
+    " Don't print out anything because this command may sometimes fail in
+    " later automatic runs because of the recurring timer
+    " echoerr '"' . coverage_json_full_path . '" is not found'
     return lines
   endif
 

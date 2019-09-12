@@ -97,7 +97,7 @@ endfunction
 
 function! coverage#find_coverage_json() abort
   if exists("*projectroot#guess")
-    let json_path = projectroot#guess(expand('%:p')) . g:coverage_json_report_path
+    let json_path = projectroot#guess(expand('%:p')) . '/' .  g:coverage_json_report_path
     return json_path
   endif
 

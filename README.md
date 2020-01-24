@@ -60,3 +60,4 @@ let g:coverage_show_uncovered = 1
 > If you found the project helpful, please give it a star :)
 
 ### MIT License
+
